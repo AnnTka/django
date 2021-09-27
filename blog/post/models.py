@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=200)
     test = models.CharField(max_length=200, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)

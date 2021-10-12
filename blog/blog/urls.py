@@ -17,15 +17,17 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
-from post.views import index as posts_index, register
+from post.views import index as posts_index
 from shop.views import products_view
+from blog.views import register_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', posts_index, name='posts_index'),
-    path('register/', register, name='register'),
+    path('posts/', posts_index, name='posts_index'),
+    path('register/', register_view, name='register_view'),
     path('api/', include('api.urls', namespace='api')),
-    path("products/", products_view, name="products_view"),
+    path('', products_view, name='products_view'),
 
 ]
 

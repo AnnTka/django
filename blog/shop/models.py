@@ -4,8 +4,8 @@ from django.db import models
 STATUS_CHOICES = (("IN_STOCK", "In Stock"), ("OUT_OF_STOCK", "Out Of Stock"))
 
 ORDER_BY_CHOICES = (
-    ("price_asc", "Price Asc"),
-    ("price_desc", "Price Desc"),
+    ("cost_asc", "Cost Asc"),
+    ("cost_desc", "Cost Desc"),
     ("max_count", "Max Count"),
     ("max_cost", "Max Cost"),
 )

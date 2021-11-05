@@ -19,5 +19,5 @@ class RegisterView(CreateAPIView, viewsets.GenericViewSet):
             email=serializer.validated_data["email"],
             password=serializer.validated_data["password"]
         )
-        token, _ = Token.object.get_or_create(user=user)
-        return Response(status=status.HTTP_201_CREATED, data={"token": token})
+        token, _ = Token.objects.get_or_create(user=user)
+        return Response(status=status.HTTP_201_CREATED, data={"token": token.key})

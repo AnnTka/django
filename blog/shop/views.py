@@ -3,6 +3,8 @@ from shop.forms import ProductFiltersForm
 from shop.models import Product
 from django.db.models import F, Sum
 from django.core.paginator import Paginator
+from django.http import Http404, HttpResponse
+from shop.task import run_products_update
 
 
 def products_view(request):
@@ -39,3 +41,8 @@ def products_view(request):
         "products/list.html",
         {"products": products, "filters_form": filters_form},
     )
+
+
+def run_products_update_task(request):
+    run_products_update.delay()
+    return HttpResponse("OK")

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from post.views import index as posts_index
-from shop.views import products_view
+from shop.views import products_view, run_products_update
 from blog.views import register_view
 
 
@@ -28,6 +28,8 @@ urlpatterns = [
     path('register/', register_view, name='register_view'),
     path('api/', include('api.urls', namespace='api')),
     path('', products_view, name='products_view'),
+    path('run-task/', run_products_update, name='run_products_update'),
+    path('django-rq/', include('django_rq.urls'))
 
 ]
 
